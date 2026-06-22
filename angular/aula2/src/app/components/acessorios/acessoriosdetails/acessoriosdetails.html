@@ -1,0 +1,48 @@
+<br />
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-lg-12">
+      <div class="card">
+
+        <div class="card-body">
+
+          <h3>Cadastro de Acessório:</h3>
+
+          <br />
+
+          <!-- NOME -->
+          <div class="form-outline mb-4" data-mdb-input-init>
+
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="acessorio.nome"
+              [ngModelOptions]="{standalone: true}">
+
+            <label class="form-label">
+              Nome
+            </label>
+
+          </div>
+
+
+          <!-- BOTÃO SALVAR -->
+          <button
+            type="button"
+            class="btn btn-success btn-rounded w-100"
+            mdbRipple 
+            (click)="save()">
+
+            Salvar
+
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

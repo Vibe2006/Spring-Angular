@@ -1,0 +1,74 @@
+.carros-container {
+  margin-top: 25px;
+}
+
+.carros-card {
+  border: none;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.titulo-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.titulo {
+  margin: 0;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.btn-novo {
+  border-radius: 12px;
+  font-weight: 600;
+  padding: 10px 20px;
+  transition: all 0.25s ease;
+}
+
+.btn-novo:hover {
+  transform: translateY(-2px);
+}
+
+.tabela-carros {
+  margin-bottom: 0;
+}
+
+.tabela-carros thead {
+  background-color: #f8f9fa;
+}
+
+.tabela-carros thead th {
+  font-weight: 700;
+  color: #495057;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.tabela-carros tbody tr {
+  transition: all 0.2s ease;
+}
+
+.tabela-carros tbody tr:hover {
+  background-color: #f5f9ff;
+}
+
+.tabela-carros td {
+  vertical-align: middle;
+}
+
+.btn-acao {
+  border-radius: 10px;
+  min-width: 80px;
+  transition: all 0.2s ease;
+}
+
+.btn-acao:hover {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 25px;
+}

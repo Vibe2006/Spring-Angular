@@ -1,0 +1,114 @@
+<br />
+
+<div class="container carros-container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card carros-card">
+        <div class="card-body">
+
+          <div class="titulo-area">
+            <h3 class="titulo">🔧 Lista de Acessórios</h3>
+
+            <button
+              class="btn btn-success btn-novo"
+              mdbRipple
+              (click)="new()"
+            >
+              Novo Acessório
+            </button>
+          </div>
+
+          <div class="table-responsive">
+
+            <table class="table tabela-carros align-middle">
+
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nome</th>
+                  <th class="text-end">Ações</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                @for (acessorio of lista; track $index) {
+
+                <tr>
+
+                  <td>{{ acessorio.id }}</td>
+
+                  <td>{{ acessorio.nome }}</td>
+
+                  <td class="text-end">
+
+                    @if (esconderBotoes) {
+
+                      <button
+                        class="btn btn-primary btn-sm btn-acao"
+                        (click)="select(acessorio)"
+                      >
+                        Selecionar
+                      </button>
+
+                    } @else {
+
+                      <button
+                        class="btn btn-primary btn-sm me-2 btn-acao"
+                        (click)="edit(acessorio)"
+                      >
+                        Editar
+                      </button>
+
+                      <button
+                        class="btn btn-danger btn-sm btn-acao"
+                        (click)="deleteById(acessorio)"
+                      >
+                        Deletar
+                      </button>
+
+                    }
+
+                  </td>
+
+                </tr>
+
+                }
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #modalAcessorioDetalhe>
+
+  <div class="modal-header">
+    <h5 class="modal-title">
+      Cadastro de Acessório
+    </h5>
+
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modalRef.close()">
+    </button>
+  </div>
+
+  <div class="modal-body">
+
+    <app-acessoriosdetails
+      [acessorio]="acessorioEdit"
+      (retorno)="retornoAcessorio($event)">
+    </app-acessoriosdetails>
+
+  </div>
+
+</ng-template>

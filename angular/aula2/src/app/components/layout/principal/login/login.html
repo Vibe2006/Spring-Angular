@@ -1,0 +1,55 @@
+<div class="login-container">
+
+  <div class="login-card">
+
+    <div class="login-header">
+      <div class="login-icon">
+        🔐
+      </div>
+
+      <h2>Bem-vindo</h2>
+      <p>Faça login para acessar o sistema</p>
+    </div>
+
+    <div class="card-body">
+
+      <div class="form-outline mb-4" data-mdb-input-init>
+        <input
+          type="text"
+          id="usuario"
+          class="form-control"
+          [(ngModel)]="usuario"
+          (keyup.enter)="logar()"
+        />
+        <label class="form-label" for="usuario">
+          Usuário
+        </label>
+      </div>
+
+      <div class="form-outline mb-4" data-mdb-input-init>
+        <input
+          type="password"
+          id="senha"
+          class="form-control"
+          [(ngModel)]="senha"
+          (keyup.enter)="logar()"
+        />
+        <label class="form-label" for="senha">
+          Senha
+        </label>
+      </div>
+
+      <button
+        type="button"
+        class="btn btn-primary btn-login w-100"
+        mdbRipple
+        (click)="logar()"
+      >
+        Entrar
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
