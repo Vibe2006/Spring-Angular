@@ -11,3 +11,16 @@
 .direita{
     text-align: center;
 }
+
+button, .btn {
+  transition: all 0.3s ease !important;
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12) !important;
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}

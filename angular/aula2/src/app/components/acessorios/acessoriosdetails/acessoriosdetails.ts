@@ -23,31 +23,30 @@ export class Acessoriosdetails {
   router2 = inject(Router);
 
   save(){
-    if(this.acessorio.id && this.acessorio.id >0){
+    if(this.acessorio.id && this.acessorio.id > 0){
       alert("Sem update pelo momento");
-    }else{
-      this.acessorioService.saveAcessorio(this.acessorio,).subscribe({
+    } else {
+      this.acessorioService.saveAcessorio(this.acessorio).subscribe({
         next: mensagem => {
-                  Swal.fire({
-                                    title: mensagem,
-                                    icon: 'success',
-                                    confirmButtonText: 'Ok'
-                                  });
-                },
-       error: erro => {
-                  Swal.fire({
-                                  title: "Ocorreu algum erro",
-                                  icon: 'error',
-                                  confirmButtonText: 'Ok'
-                                });
-                                this.router2.navigate(["admin/acessorios"], { state: {acessorioNovo: this.acessorio}});
-                                this.retorno.emit(this.acessorio);
-              }          
+          Swal.fire({
+            title: mensagem,
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          });
+          
+          // Fecha o modal e atualiza a lista de acessórios após salvar no banco
+          this.retorno.emit(this.acessorio);
+        },
+        error: erro => {
+          Swal.fire({
+            title: "Ocorreu algum erro ao salvar",
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          });
+        }
       });
     }
-    this.retorno.emit(this.acessorio);
   }
-
 
 
 

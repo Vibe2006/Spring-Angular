@@ -24,43 +24,44 @@ export class Marcasdetails {
   router2 = inject(Router);
 
   saveMarca(){
-    
-    if(this.marca.id && this.marca.id >0){
+    if(this.marca.id && this.marca.id > 0){
       this.marcasService.updateMarca(this.marca, this.marca.id!).subscribe({
         next: mensagem => {
           Swal.fire({
-                            title: mensagem,
-                            icon: 'success',
-                            confirmButtonText: 'Ok'
-                          });
+            title: mensagem,
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          });
+          
+          // Fecha o modal e atualiza a lista de marcas após salvar no banco
+          this.retorno.emit(this.marca);
         },
         error: erro => {
-         Swal.fire({
-                            title: "Ocorreu algum erro",
-                            icon: 'error',
-                            confirmButtonText: 'Ok'
-                          });
-                          this.router2.navigate(["admin/marcas"], { state: {marcaNovo: this.marca}});
-                          this.retorno.emit(this.marca);
+          Swal.fire({
+            title: "Ocorreu algum erro ao atualizar",
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          });
         }
       });
-    }else{
-      this.marcasService.saveMarca(this.marca,).subscribe({
+    } else {
+      this.marcasService.saveMarca(this.marca).subscribe({
         next: mensagem => {
           Swal.fire({
-                            title: mensagem,
-                            icon: 'success',
-                            confirmButtonText: 'Ok'
-                          });
+            title: mensagem,
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          });
+          
+          // Fecha o modal e atualiza a lista de marcas após salvar no banco
+          this.retorno.emit(this.marca);
         },
         error: erro => {
-            Swal.fire({
-                            title: "Ocorreu algum erro",
-                            icon: 'error',
-                            confirmButtonText: 'Ok'
-                          });
-                          this.router2.navigate(["admin/marcas"], { state: {marcaNovo: this.marca}});
-                          this.retorno.emit(this.marca);
+          Swal.fire({
+            title: "Ocorreu algum erro ao salvar",
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          });
         }
       });
     }

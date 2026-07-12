@@ -1,62 +1,41 @@
-<br />
-<br />
+<div class="p-4">
+  <h3 class="mb-4 text-primary fw-bold">Cadastro de Marca</h3>
 
-<div class="container">
-  <div class="row">
-
-    <div class="col-lg-12">
-      <div class="card">
-        <div class="card-body">
-
-          <h3>Cadastro de Marcas:</h3>
-
-          <br />
-
-          <!-- NOME -->
-          <div class="form-outline mb-4" data-mdb-input-init>
-
-            <input
-              type="text"
-              class="form-control"
-              [(ngModel)]="marca.nome"
-              [ngModelOptions]="{standalone: true}"
-            />
-
-            <label class="form-label">
-              Nome
-            </label>
-
-          </div>
-
-          <!-- CNPJ -->
-          <div class="form-outline mb-4" data-mdb-input-init>
-
-            <input
-              type="text"
-              class="form-control"
-              [(ngModel)]="marca.cnpj"
-              [ngModelOptions]="{standalone: true}"
-            />
-
-            <label class="form-label">
-              CNPJ
-            </label>
-
-          </div>
-
-          <!-- BOTÃO -->
-          <button
-            type="button"
-            class="btn btn-primary btn-rounded w-100"
-            mdbRipple
-            (click)="saveMarca()"
-          >
-            Salvar
-          </button>
-
-        </div>
-      </div>
+  <div class="row g-3">
+    <!-- NOME -->
+    <div class="col-12 col-md-6">
+      <label class="form-label fw-bold text-secondary">Nome da Marca</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="marca.nome"
+        [ngModelOptions]="{standalone: true}"
+        placeholder="Ex: Toyota"
+      />
     </div>
 
+    <!-- CNPJ -->
+    <div class="col-12 col-md-6">
+      <label class="form-label fw-bold text-secondary">CNPJ</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="marca.cnpj"
+        [ngModelOptions]="{standalone: true}"
+        placeholder="00.000.000/0000-00"
+      />
+    </div>
+
+    <!-- BOTÃO -->
+    <div class="col-12 text-center mt-4">
+      <button
+        type="button"
+        class="btn btn-primary btn-rounded px-5 btn-save"
+        mdbRipple
+        (click)="saveMarca()"
+      >
+        Salvar
+      </button>
+    </div>
   </div>
 </div>

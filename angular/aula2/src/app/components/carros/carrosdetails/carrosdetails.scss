@@ -1,0 +1,47 @@
+.form-control {
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  padding: 0.375rem 0.75rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  
+  &:focus {
+    border-color: #3b71ca;
+    box-shadow: 0 0 0 0.2rem rgba(59, 113, 202, 0.25);
+  }
+}
+
+.btn-buscar-marca, .input-group-text, .input-group .btn, .btn-buscar-acessorios {
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-group-text {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border: 1px solid #ced4da;
+  border-right: none;
+}
+
+.input-group .btn {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.btn-save {
+  width: 100%;
+  border-radius: 30px;
+  font-weight: 600;
+  
+  @media (min-width: 768px) {
+    width: auto;
+    min-width: 180px;
+  }
+}
+
+.table-responsive {
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}

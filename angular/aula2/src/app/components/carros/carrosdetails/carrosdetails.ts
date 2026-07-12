@@ -73,58 +73,52 @@ Swal.fire({
   }
 
 
-  save(){
+ save(){
     if(this.carro.id && this.carro.id > 0){
 
       this.carrosService.update(this.carro, this.carro.id!).subscribe({
-      next: mensagem => {
-        Swal.fire({
-                  title: mensagem,
-                  icon: 'success',
-                  confirmButtonText: 'Ok'
-                });
-      },
-      error: erro => {
-        Swal.fire({
-                  title: "Ocorreu algum erro",
-                  icon: 'error',
-                  confirmButtonText: 'Ok'
-                });
-                this.router2.navigate(["admin/carros"], { state: {carroEditado: this.carro} });
-                this.retorno.emit(this.carro);
+        next: mensagem => {
+          Swal.fire({
+            title: mensagem,
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          });
+          
+          // Fecha o modal e atualiza a lista IMEDIATAMENTE no sucesso da requisição
+          this.retorno.emit(this.carro); 
+        },
+        error: erro => {
+          Swal.fire({
+            title: "Ocorreu algum erro ao atualizar",
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          });
+        }
+      });
 
+    } else {
 
-      }
-    });
-
-    }else{
-
-      this.carrosService.save(this.carro,).subscribe({
-      next: mensagem => {
-        Swal.fire({
-                  title: mensagem,
-                  icon: 'success',
-                  confirmButtonText: 'Ok'
-                });
-      },
-      error: erro => {
-        Swal.fire({
-                  title: "Ocorreu algum erro",
-                  icon: 'error',
-                  confirmButtonText: 'Ok'
-                });
-                this.router2.navigate(["admin/carros" ], { state: {carroNovo: this.carro} });
-                    this.retorno.emit(this.carro);
-
-
-      }
-    });
-
+      this.carrosService.save(this.carro).subscribe({
+        next: mensagem => {
+          Swal.fire({
+            title: mensagem,
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          });
+          
+          // Fecha o modal e atualiza a lista IMEDIATAMENTE no sucesso da requisição
+          this.retorno.emit(this.carro); 
+        },
+        error: erro => {
+          Swal.fire({
+            title: "Ocorreu algum erro ao salvar",
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          });
+        }
+      });
 
     }
-
-
-
   }
 
   buscarMarca(){
@@ -137,6 +131,7 @@ Swal.fire({
 
   retornoMarca(marca: Marca){
     this.carro.marca = marca;
+    this.cd.detectChanges();
     this.modalRef.close();
   }
 

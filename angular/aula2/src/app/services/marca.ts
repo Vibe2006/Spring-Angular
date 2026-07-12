@@ -2,6 +2,7 @@ import { Marca } from './../models/marca';
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 
 
@@ -12,7 +13,7 @@ export class MarcaService {
 
   http = inject(HttpClient);
 
-  API = "http://localhost:8080/api/marca";
+  API = environment.SERVIDOR+"/api/marca";
 
   constructor(){
 

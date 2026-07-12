@@ -34,12 +34,13 @@
     text-decoration: none;
     padding: 14px 20px;
     font-size: 16px;
-    transition: 0.2s;
+    transition: all 0.3s ease;
 }
 
 .nav-link:hover{
     background-color: #495057;
     color: white;
+    padding-left: 24px;
 }
 
 .nav-link.active{

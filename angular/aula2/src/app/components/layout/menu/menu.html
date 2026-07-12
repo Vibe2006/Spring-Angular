@@ -15,13 +15,13 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         
-        @if(LoginService.hasPermission("ADMIN")){
+       
          <a class="nav-link active" aria-current="page" href="admin/carros">Carros</a>
-        }
+        
 
-        @if(LoginService.hasPermission("USER")){
+       
           <a class="nav-link" href="admin/marcas">Marcas</a>
-        }
+        
         <a class="nav-link" href="admin/acessorios">Acessórios</a>
         <a class="nav-link" href="login">Sair</a>
         <!-- <a class="nav-link disabled"

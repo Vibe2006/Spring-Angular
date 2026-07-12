@@ -1,48 +1,27 @@
-<br />
+<div class="p-4">
+  <h3 class="mb-4 text-success fw-bold">Cadastro de Acessório</h3>
 
-<div class="container">
-  <div class="row">
-
-    <div class="col-lg-12">
-      <div class="card">
-
-        <div class="card-body">
-
-          <h3>Cadastro de Acessório:</h3>
-
-          <br />
-
-          <!-- NOME -->
-          <div class="form-outline mb-4" data-mdb-input-init>
-
-            <input
-              type="text"
-              class="form-control"
-              [(ngModel)]="acessorio.nome"
-              [ngModelOptions]="{standalone: true}">
-
-            <label class="form-label">
-              Nome
-            </label>
-
-          </div>
-
-
-          <!-- BOTÃO SALVAR -->
-          <button
-            type="button"
-            class="btn btn-success btn-rounded w-100"
-            mdbRipple 
-            (click)="save()">
-
-            Salvar
-
-          </button>
-
-        </div>
-
-      </div>
+  <div class="row g-3 justify-content-center">
+    <!-- NOME -->
+    <div class="col-12 col-md-8">
+      <label class="form-label fw-bold text-secondary">Nome do Acessório</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="acessorio.nome"
+        [ngModelOptions]="{standalone: true}"
+        placeholder="Ex: Ar Condicionado">
     </div>
 
+    <!-- BOTÃO SALVAR -->
+    <div class="col-12 text-center mt-4">
+      <button
+        type="button"
+        class="btn btn-success btn-rounded px-5 btn-save"
+        mdbRipple 
+        (click)="save()">
+        Salvar
+      </button>
+    </div>
   </div>
 </div>

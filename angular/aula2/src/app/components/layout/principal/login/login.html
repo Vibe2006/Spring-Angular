@@ -1,55 +1,56 @@
 <div class="login-container">
-
   <div class="login-card">
-
+    
     <div class="login-header">
-      <div class="login-icon">
-        🔐
+      <div class="login-icon-wrapper">
+        <span class="login-icon">🔐</span>
       </div>
-
-      <h2>Bem-vindo</h2>
-      <p>Faça login para acessar o sistema</p>
+      <h2>Acesse sua Conta</h2>
+      <p>Insira suas credenciais para gerenciar a frota</p>
     </div>
 
     <div class="card-body">
-
-      <div class="form-outline mb-4" data-mdb-input-init>
+      <!-- Campo Usuário -->
+      <div class="input-group-custom mb-4">
+        <label for="usuario">Usuário</label>
         <input
           type="text"
           id="usuario"
           class="form-control"
           [(ngModel)]="usuario"
           (keyup.enter)="logar()"
+          placeholder="Digite seu usuário"
         />
-        <label class="form-label" for="usuario">
-          Usuário
-        </label>
       </div>
 
-      <div class="form-outline mb-4" data-mdb-input-init>
+      <!-- Campo Senha -->
+      <div class="input-group-custom mb-4">
+        <label for="senha">Senha</label>
         <input
           type="password"
           id="senha"
           class="form-control"
           [(ngModel)]="senha"
           (keyup.enter)="logar()"
+          placeholder="Digite sua senha"
         />
-        <label class="form-label" for="senha">
-          Senha
-        </label>
       </div>
 
+      <!-- Botão Entrar -->
       <button
         type="button"
-        class="btn btn-primary btn-login w-100"
+        class="btn btn-login w-100"
         mdbRipple
         (click)="logar()"
       >
-        Entrar
+        <span>Entrar no Sistema</span>
+        <i class="fas fa-arrow-right ms-2"></i>
       </button>
+    </div>
 
+    <div class="login-footer">
+      <p>© 2026 Carros Admin. Todos os direitos reservados.</p>
     </div>
 
   </div>
-
 </div>

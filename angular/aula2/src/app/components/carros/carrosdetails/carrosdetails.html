@@ -1,135 +1,98 @@
-<br />
+<div class="p-4">
+  <h3 class="mb-4 text-primary fw-bold">Cadastro de Carro</h3>
 
-<div class="container">
-  <div class="row">
+  <div class="row g-3">
+    <!-- NOME -->
+    <div class="col-12 col-md-6">
+      <label class="form-label fw-bold text-secondary">Nome do Carro</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="carro.nome"
+        [ngModelOptions]="{standalone: true}"
+        placeholder="Ex: Civic">
+    </div>
 
-    <div class="col-lg-12">
-      <div class="card">
-
-        <div class="card-body">
-
-          <h3>Cadastro de Carro:</h3>
-
-          <br />
-
-          <!-- NOME -->
-          <div class="form-outline mb-4" data-mdb-input-init>
-
-            <input
-              type="text"
-              class="form-control"
-              [(ngModel)]="carro.nome"
-              [ngModelOptions]="{standalone: true}">
-
-            <label class="form-label">
-              Nome
-            </label>
-
-          </div>
-
-          <!-- BOTÃO MARCA -->
-          <div class="mb-3">
-
-            @if(carro.marca == null){
-
-              <button
-                type="button"
-                class="btn btn-primary btn-rounded w-100"
-                mdbRipple
-                (click)="buscarMarca()">
-
-                Buscar Marca
-
-              </button>
-
-            } @else {
-
-              <p class="text-primary alert-primary">Marca: {{carro.marca.nome}}</p>
-              <button
-                type="button"
-                class="btn btn-primary btn-rounded w-100"
-                mdbRipple
-                (click)="buscarMarca()">
-
-                Trocar Marca
-
-              </button>
-
-            }
-
-          </div>
-
-          <br>
-
-          <div class="mb-3">
-
-      
-
-              <button
-                type="button"
-                class="btn btn-primary btn-rounded w-100"
-                mdbRipple
-                (click)="buscarAcessorio()">
-
-                Buscar Acessórios
-
-              </button>
-
-              <br>
-
-
-              <table class="table table-striped table-hover align-middle">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th class="text-end">Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              @for (acessorio of carro.acessorios; track $index) {
-                <tr>
-                  <td>{{ acessorio.id }}</td>
-
-                  <td>{{ acessorio.nome }}</td>
-
-                  <td class="text-end">
-                    
-
-                      <button class="btn btn-danger btn-sm" (click)="desvincularAcessorioCarro(acessorio)">
-                        Deletar
-                      </button>
-                    
-                  </td>
-                </tr>
-              }
-            </tbody>
-          </table>
-
-            
-
-             
-
-          </div>
-
-          <br>
-
-          <!-- BOTÃO SALVAR -->
+    <!-- BOTÃO MARCA -->
+    <div class="col-12 col-md-6">
+      <label class="form-label fw-bold text-secondary">Marca do Carro</label>
+      @if(carro.marca == null){
+        <button
+          type="button"
+          class="btn btn-primary btn-rounded w-100 btn-buscar-marca"
+          mdbRipple
+          (click)="buscarMarca()">
+          Buscar Marca
+        </button>
+      } @else {
+        <div class="input-group">
+          <span class="input-group-text bg-light text-primary border-primary flex-grow-1 text-truncate">
+            Marca: {{carro.marca.nome}}
+          </span>
           <button
             type="button"
-            class="btn btn-success btn-rounded w-100"
-            mdbRipple 
-            (click)="save()">
-
-            Salvar
-
+            class="btn btn-primary"
+            mdbRipple
+            (click)="buscarMarca()">
+            Trocar
           </button>
-
         </div>
+      }
+    </div>
 
+    <!-- SEÇÃO ACESSÓRIOS -->
+    <div class="col-12 mt-4">
+      <div class="row align-items-center g-2 mb-3">
+        <div class="col-12 col-md-8">
+          <h5 class="mb-0 fw-bold text-secondary">Acessórios Vinculados</h5>
+        </div>
+        <div class="col-12 col-md-4 text-md-end">
+          <button
+            type="button"
+            class="btn btn-outline-primary btn-rounded w-100 btn-buscar-acessorios"
+            mdbRipple
+            (click)="buscarAcessorio()">
+            Buscar Acessórios
+          </button>
+        </div>
+      </div>
+
+      <div class="table-responsive border rounded shadow-sm">
+        <table class="table table-striped table-hover align-middle mb-0">
+          <thead class="bg-light">
+            <tr>
+              <th class="fw-bold text-muted" style="width: 80px;">ID</th>
+              <th class="fw-bold text-muted">Nome</th>
+              <th class="fw-bold text-muted text-end" style="width: 100px;">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (acessorio of carro.acessorios; track $index) {
+              <tr>
+                <td>{{ acessorio.id }}</td>
+                <td>{{ acessorio.nome }}</td>
+                <td class="text-end">
+                  <button class="btn btn-danger btn-sm px-3" (click)="desvincularAcessorioCarro(acessorio)">
+                    Deletar
+                  </button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
       </div>
     </div>
 
+    <!-- BOTÃO SALVAR -->
+    <div class="col-12 text-center mt-4">
+      <button
+        type="button"
+        class="btn btn-success btn-rounded px-5 btn-save"
+        mdbRipple 
+        (click)="save()">
+        Salvar
+      </button>
+    </div>
   </div>
 </div>
 
